@@ -7,7 +7,7 @@ let
         packages = pkgs.haskell.packages // {
           "${compiler}" = pkgs.haskell.packages."${compiler}".override {
             overrides = haskellPackagesNew: haskellPackagesOld: rec {
-              project1 =
+              escoger =
                 haskellPackagesNew.callPackage ./default.nix { };
             };
           };
@@ -18,5 +18,5 @@ let
   pkgs = import <nixos-unstable> { inherit config; };
 
 in
-  { project1 = pkgs.haskell.packages.${compiler}.project1;
+  { escoger = pkgs.haskell.packages.${compiler}.escoger;
   }
